@@ -1,7 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+def generate_chat(app_id)
+  ch = Chat.create!(
+    system_application_id: app_id
+  )
+  generate_messages(ch.id)
+end
+
+def generate_messages(ch_id)
+  3..9.times do |i|
+    Message.create!(
+      chat_id: ch_id
+    )
+  end
+end
+
+app_1 = SystemApplication.create!(
+  name: 'app 1'
+)
+generate_chat(app_1.id)
+
+app_2 = SystemApplication.create!(
+  name: 'app 2'
+)
+generate_chat(app_2.id)
