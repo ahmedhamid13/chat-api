@@ -6,10 +6,15 @@ class SystemApplication < ApplicationRecord
   validates :name, presence: true
   validates :name, length: { maximum: 255 }
   validates :token, presence: { message: "please try again" }, uniqueness: { message: "please try again" }
-  validates :chats_count, numericality: { greater_than_or_equal_to: 0 }
+  validates :chats_count, numericality: { greater_than_or_equal_to: 0, less_than: ->(i) { i.chats.count + 1 } }
+  validates :token, inclusion: { in: ->(i) { [i.token_was] } },
+            on: :update
 
   # call backs
   before_validation :generate_token, on: :create
+  before_save do
+    self.chats_count = chats.count
+  end
 
   private 
 
