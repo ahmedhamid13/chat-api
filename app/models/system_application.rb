@@ -1,0 +1,2 @@
+class SystemApplication < ApplicationRecord
+end
