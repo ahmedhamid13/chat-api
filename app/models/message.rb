@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Message < ApplicationRecord
+  include SearchableMessage
+
   # relations
   belongs_to :chat
   has_one :system_application, through: :chat

@@ -1,15 +1,20 @@
 # Prerequisites
 
-You should have `ruby` and `rails` installed. If you don't, install ruby, rails and mysql from [here](https://gorails.com/setup/ubuntu/20.04).
+You should have `ruby`, `rails`, `redis`, `elasticsearch` and `mysql` installed. If you don't, install ruby, rails and mysql from [here](https://gorails.com/setup/ubuntu/20.04).
 
 - Ruby -V 2.7.5
 - Rails -V 5.2.5
+- Redis -V 6.0.16
+- ElasticSearch -V 7.17.6
 
-## Installing
+# Postman Api
+
+## PostMan_URL: https://documenter.getpostman.com/view/12318086/UVRGDP8s
+# Installing
 
 1. Download the zipped file and unzip it or Clone it
    ```sh
-   $ git clone https://github.com/ahmedhamid13/chat-api
+   $ git clone https://github.com/ahmedhamid13/Chat-System
    ```
 2. Run this command to install the packages needed
    ```sh
@@ -28,6 +33,7 @@ You should have `ruby` and `rails` installed. If you don't, install ruby, rails 
    $ rails s
    ```
 6. Open Application on: (localhost:3000)
+
 
 # Unit Test (Spec)
 

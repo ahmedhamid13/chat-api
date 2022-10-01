@@ -10,7 +10,11 @@ module Api
 
       # GET /api/v1/applications/:token/chats/:number/messages
       def index
-        @pagy, @messages = pagy(@chat.messages)
+        if params[:q].present?
+          @pagy, @messages = pagy_array(::Message.search(q: params[:q], chat_id: @chat.id))
+        else
+          @pagy, @messages = pagy(@chat.messages)
+        end
 
         render json: { messages: messages_json(@messages, @includes), pagy: pagy_json(@pagy, @includes) }
       end

@@ -4,7 +4,7 @@ module Api
   module V1
     module Pagy
       include Api::V1::Json
-      include Pagy::Backend
+      include ::Pagy::Backend
 
       def pagy_json(pagy, includes = [], _options = {})
         return {} unless pagy

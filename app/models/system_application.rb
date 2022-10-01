@@ -20,7 +20,7 @@ class SystemApplication < ApplicationRecord
 
   def generate_token
     self.token = loop do
-      random_token = SecureRandom.urlsafe_base64(24, false)
+      random_token = SecureRandom.urlsafe_base64(28, false)
       break random_token unless SystemApplication.exists?(token: random_token)
     end
   end
