@@ -26,9 +26,8 @@ module Api
 
       # POST /api/v1/applications/:token/chats/:number/messages
       def create
-        Message.with_advisory_lock('message_lock') do
-          @chat.messages.last&.lock!
-          @message = Message.new(message_params)
+        ::Message.with_advisory_lock('message_lock') do
+          @message = ::Message.new(message_params)
 
           if @message.save
             render json: { message: message_json(@message, @includes) }, status: :created

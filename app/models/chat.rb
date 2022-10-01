@@ -24,8 +24,8 @@ class Chat < ApplicationRecord
   end
 
   def increment_application_chats
-    system_application&.with_lock do
-      system_application.increment!(:chats_count)
-    end
+    # system_application&.with_lock do
+    system_application.increment!(:chats_count)
+    # end
   end
 end

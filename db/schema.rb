@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_01_181609) do
+ActiveRecord::Schema.define(version: 2022_10_01_225538) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.integer "number", null: false
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2022_10_01_181609) do
     t.bigint "system_application_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lock_version", default: 0, null: false
+    t.index ["number", "system_application_id"], name: "index_chats_on_number_and_system_application_id", unique: true
     t.index ["system_application_id"], name: "index_chats_on_system_application_id"
   end
 
@@ -28,6 +30,7 @@ ActiveRecord::Schema.define(version: 2022_10_01_181609) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["number", "chat_id"], name: "index_messages_on_number_and_chat_id", unique: true
   end
 
   create_table "system_applications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|

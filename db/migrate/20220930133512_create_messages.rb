@@ -7,6 +7,7 @@ class CreateMessages < ActiveRecord::Migration[5.2]
       t.text :body
       t.references :chat, foreign_key: true
 
+      t.index %i[number chat_id], unique: true
       t.timestamps
     end
   end

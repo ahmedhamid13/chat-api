@@ -21,8 +21,7 @@ module Api
 
       # POST /api/v1/applications/:token/chats
       def create
-        Chat.with_advisory_lock('chat_lock') do
-          @application.chats.last&.lock!
+        ::Chat.with_advisory_lock('chat_lock') do
           @chat = Chat.new(chat_params)
 
           if @chat.save

@@ -7,6 +7,7 @@ class CreateChats < ActiveRecord::Migration[5.2]
       t.integer :messages_count, default: 0
       t.references :system_application, foreign_key: true
 
+      t.index %i[number system_application_id], unique: true
       t.timestamps
     end
   end

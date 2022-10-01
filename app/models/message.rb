@@ -26,8 +26,8 @@ class Message < ApplicationRecord
   end
 
   def increment_chat_messages
-    chat&.with_lock do
-      chat.increment!(:messages_count)
-    end
+    # chat&.with_lock do
+    chat.increment!(:messages_count)
+    # end
   end
 end

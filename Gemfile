@@ -54,4 +54,5 @@ gem 'elasticsearch-rails'
 
 gem 'rails_performance'
 gem 'sidekiq', '~> 5.2.8'
+gem 'sidekiq-unique-jobs'
 gem 'sidekiq-statistic'
