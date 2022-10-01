@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Searchable
   extend ActiveSupport::Concern
 
@@ -12,22 +14,22 @@ module Searchable
       end
     end
 
-    def as_indexed_json(options={})
-      self.as_json(only: %i[body number chat_id])
+    def as_indexed_json(_options = {})
+      as_json(only: %i[body number chat_id])
     end
 
     def self.search(term, chat_id)
       response = __elasticsearch__.search(
-          query: {
-              bool: {
-                  must: [
-                      { match: { chat_id: chat_id } },
-                      { query_string: { query: "*#{term}*", fields: [:body] } }
-                  ]
-              }
+        query: {
+          bool: {
+            must: [
+              { match: { chat_id: chat_id } },
+              { query_string: { query: "*#{term}*", fields: [:body] } }
+            ]
           }
+        }
       )
-      response.results.map { |r| {body: r._source.body, number: r._source.number} }
+      response.results.map { |r| { body: r._source.body, number: r._source.number } }
     end
   end
 end
