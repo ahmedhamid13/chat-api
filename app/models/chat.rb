@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Chat < ApplicationRecord
   # relations
   belongs_to :system_application
@@ -15,12 +17,12 @@ class Chat < ApplicationRecord
   after_create :increment_application_chats
 
   private
-  
+
   def generate_number
     chats = system_application.chats
     self.number = chats.empty? ? 1 : (chats.last.number + 1)
   end
-  
+
   def increment_application_chats
     system_application&.with_lock do
       system_application.increment!(:chats_count)

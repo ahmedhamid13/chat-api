@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 def generate_chats(app_id)
-  22..37.times do |i|
+  22..37.times do |_i|
     ch = Chat.create!(
       system_application_id: app_id
     )
@@ -8,7 +10,7 @@ def generate_chats(app_id)
 end
 
 def generate_messages(ch_id)
-  5..13.times do |i|
+  5..13.times do |_i|
     Message.create!(
       chat_id: ch_id
     )

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class Message < ApplicationRecord
   # relations
   belongs_to :chat
   has_one :system_application, through: :chat
-  
+
   # validations
   validates :number, :chat, presence: true
   validates :body, length: { maximum: 5000 }, allow_nil: true
@@ -15,12 +17,12 @@ class Message < ApplicationRecord
   after_create :increment_chat_messages
 
   private
-  
+
   def generate_number
     messages = chat.messages
     self.number = messages.empty? ? 1 : (messages.last.number + 1)
   end
-  
+
   def increment_chat_messages
     chat&.with_lock do
       chat.increment!(:messages_count)
