@@ -42,6 +42,11 @@ You should have `ruby`, `rails`, `redis`, `elasticsearch` and `mysql` installed.
    $ rails test test/models
    ```
 
+# Additional Funtionalities
+
+1. Check Performance on ({{url}}/admin/site_performance)
+1. Check Sidekiq on ({{url}}/admin/sidekiq)
+
 ### License
 
 MIT License

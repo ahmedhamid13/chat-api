@@ -51,3 +51,7 @@ gem 'with_advisory_lock'
 
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+
+gem 'rails_performance'
+gem 'sidekiq', '~> 5.2.8'
+gem 'sidekiq-statistic'
