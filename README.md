@@ -14,7 +14,7 @@ You should have `ruby`, `rails`, `redis`, `elasticsearch` and `mysql` installed.
 
 1. Download the zipped file and unzip it or Clone it
    ```sh
-   $ git clone https://github.com/ahmedhamid13/Chat-System
+   $ git clone https://github.com/ahmedhamid13/chat-api
    ```
 2. Run this command to install the packages needed
    ```sh
@@ -32,8 +32,23 @@ You should have `ruby`, `rails`, `redis`, `elasticsearch` and `mysql` installed.
    ```sh
    $ rails s
    ```
-6. Open Application on: (localhost:3000)
+6. Open API on: (localhost:3000)
 
+# Docker
+
+1. Build your API image
+   ```sh
+   $ docker-compose build
+   ```
+2. Run API Container
+   ```sh
+   $ docker-compose up
+   ```
+3. Run Docker commands on your API
+   ```sh
+   $ docker-compose run app rails <>
+   ```
+4. Open API on: (localhost:3001)
 
 # Unit Test (Spec)
 
