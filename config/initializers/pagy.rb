@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'pagy/extras/overflow'
 require 'pagy/extras/array'
 
@@ -15,8 +17,8 @@ Pagy::DEFAULT[:page]   = 1                                  # default
 Pagy::DEFAULT[:items]  = 12                                 # default
 Pagy::DEFAULT[:outset] = 0                                  # default
 
-Pagy::DEFAULT[:size]       = [1,4,4,1]                       # default
-Pagy::DEFAULT[:page_param] = :page                           # default
+Pagy::DEFAULT[:size]       = [1, 4, 4, 1] # default
+Pagy::DEFAULT[:page_param] = :page # default
 # The :params can be also set as a lambda e.g ->(params){ params.exclude('useless').merge!('custom' => 'useful') }
 Pagy::DEFAULT[:params]     = {}                              # default
 Pagy::DEFAULT[:fragment]   = '#fragment'                     # example

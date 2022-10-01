@@ -10,9 +10,9 @@ Rails.application.routes.draw do
       end
     end
   end
-  
-  scope "/admin" do
-    mount Sidekiq::Web => "sidekiq", as: "sidekiq"
-    mount RailsPerformance::Engine, at: "site_performance", as: "site_performance"
+
+  scope '/admin' do
+    mount Sidekiq::Web => 'sidekiq', as: 'sidekiq'
+    mount RailsPerformance::Engine, at: 'site_performance', as: 'site_performance'
   end
 end
