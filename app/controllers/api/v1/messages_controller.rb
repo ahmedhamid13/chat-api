@@ -26,14 +26,12 @@ module Api
 
       # POST /api/v1/applications/:token/chats/:number/messages
       def create
-        ::Message.with_advisory_lock('message_lock') do
-          @message = ::Message.new(message_params)
+        result = NewMessage.create(chat_id: @chat.id, body: message_params[:body])
 
-          if @message.save
-            render json: { message: message_json(@message, @includes) }, status: :created
-          else
-            render json: @message.errors, status: :unprocessable_entity
-          end
+        if result.success?
+          render json: { message: message_json(result.value, @includes) }, status: :created
+        else
+          render json: result.errors, status: :unprocessable_entity
         end
       end
 

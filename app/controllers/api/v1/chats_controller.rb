@@ -21,14 +21,12 @@ module Api
 
       # POST /api/v1/applications/:token/chats
       def create
-        ::Chat.with_advisory_lock('chat_lock') do
-          @chat = Chat.new(chat_params)
+        result = NewChat.create(application_id: @application.id)
 
-          if @chat.save
-            render json: { chat: chat_json(@chat, @includes) }, status: :created
-          else
-            render json: @chat.errors, status: :unprocessable_entity
-          end
+        if result.success?
+          render json: { chat: chat_json(result.value, @includes) }, status: :created
+        else
+          render json: result.errors, status: :unprocessable_entity
         end
       end
 

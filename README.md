@@ -56,6 +56,10 @@ You should have `ruby`, `rails`, `redis`, `elasticsearch` and `mysql` installed.
    ```sh
    $ rails test test/models
    ```
+2. Testing controllers
+   ```sh
+   $ rails test test/controllers
+   ```
 
 # Additional Funtionalities
 

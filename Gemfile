@@ -14,7 +14,7 @@ gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+gem 'redis', '< 4.6'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -33,6 +33,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'colorize'
   gem 'pry'
 end
 
@@ -53,6 +54,10 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
 gem 'rails_performance'
-gem 'sidekiq', '~> 5.2.8'
-gem 'sidekiq-unique-jobs'
+gem 'sidekiq'
+gem 'sidekiq-batch'
+gem 'sidekiq-scheduler'
 gem 'sidekiq-statistic'
+gem 'sidekiq-unique-jobs'
+
+# gem 'awesome_nested_set'

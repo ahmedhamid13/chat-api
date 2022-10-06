@@ -1,0 +1,4 @@
+:queues:
+  - default
+  - new_chat
+  - new_message
