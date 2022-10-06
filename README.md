@@ -32,7 +32,11 @@ You should have `ruby`, `rails`, `redis`, `elasticsearch` and `mysql` installed.
    ```sh
    $ rails s
    ```
-6. Open API on: (localhost:3000)
+6. Run this command to run sidekiq workers
+   ```sh
+   $ bundle exec sidekiq
+   ```
+7. Open API on: (localhost:3000)
 
 # Docker
 
